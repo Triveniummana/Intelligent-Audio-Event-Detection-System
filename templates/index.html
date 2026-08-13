@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SonicGuard AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-wave-square"></i> Audio-Model
+            </div>
+            <ul class="nav-links">
+                <li class="active" onclick="setTab('home')">
+                    <i class="fa-solid fa-house-chimney"></i> <span>Smart Home</span>
+                </li>
+                <li onclick="setTab('industrial')">
+                    <i class="fa-solid fa-industry"></i> <span>Industrial</span>
+                </li>
+                <li onclick="setTab('surveillance')">
+                    <i class="fa-solid fa-user-secret"></i> <span>Surveillance</span>
+                </li>
+                <li onclick="setTab('public')">
+                    <i class="fa-solid fa-truck-medical"></i> <span>Public Safety</span>
+                </li>
+            </ul>
+            <div class="footer-status">
+                <div class="pulse"></div> System Online
+            </div>
+        </nav>
+
+        <main class="content">
+            <header>
+                <div class="header-text">
+                    <h1 id="tab-title">Smart Home Monitor</h1>
+                    <p id="tab-desc">Domestic environment monitoring active.</p>
+                </div>
+                <div class="clock" id="clock">--:--:--</div>
+            </header>
+
+            <div class="dashboard-grid">
+                
+                <div class="card visualizer-card">
+                    <div class="viz-header">
+                        <i class="fa-solid fa-ear-listen"></i> Acoustic Sensor Feed
+                    </div>
+                    <div class="viz-body">
+                        <div class="icon-display" id="main-icon">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        
+                        <h2 id="event-name">Listening...</h2>
+                        
+                        <div class="bar-container">
+                            <div class="bar-fill" id="conf-bar"></div>
+                        </div>
+                        <span id="conf-text">0% Confidence</span>
+                    </div>
+                </div>
+
+                <div class="card log-card">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Detection Log</h3>
+                    <ul id="log-list">
+                        </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
